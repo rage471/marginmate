@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<meta name="description" content="MarginMate helps service businesses estimate job costs, set prices and understand profit margins.">
+<title>MarginMate — Price jobs with confidence</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--ink:#182b3a;--muted:#627487;--line:#dce5ec;--bg:#f4f7fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--navy);color:white;padding:18px max(22px,calc((100% - 1080px)/2));display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-size:1.4rem;font-weight:850;letter-spacing:-.04em}.brand span{color:#7dd3fc}
+select,input,button{font:inherit}select{padding:9px;border:1px solid var(--line);border-radius:9px;background:white}
+main{max-width:1080px;margin:35px auto;padding:0 20px}.intro{margin-bottom:24px}.eyebrow{color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;letter-spacing:-.05em;color:var(--navy);margin:8px 0 12px}.intro p,.sub,.note{color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:23px;box-shadow:0 10px 28px #102a4310}
+h2{font-size:1.15rem;color:var(--navy);margin:0 0 4px}.sub{font-size:.9rem;margin:0 0 18px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-weight:650;font-size:.88rem;margin-bottom:6px}
+.field input{width:100%;padding:11px;border:1px solid #cbd8e2;border-radius:9px;min-width:0}.field input:focus,select:focus{outline:3px solid #b9e2fa;border-color:var(--blue)}
+.hint{font-size:.76rem;color:var(--muted);margin-top:4px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:19px}
+button{border:0;border-radius:9px;padding:11px 16px;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#edf3f7;color:var(--navy)}
+.result{background:var(--navy);color:white;border-radius:14px;padding:20px;margin-top:16px}.small{font-size:.82rem;color:#c5d7e5}.price{font-size:2.4rem;font-weight:850;letter-spacing:-.05em;overflow-wrap:anywhere}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.stat{background:#ffffff19;padding:11px;border-radius:10px}.stat strong{display:block;font-size:1.15rem;margin-top:3px}
+.breakdown{border-top:1px solid #ffffff40;margin-top:15px;padding-top:12px;display:grid;gap:7px;font-size:.9rem}.breakrow{display:flex;justify-content:space-between;gap:10px}
+.error{color:#b42318;font-size:.85rem;min-height:1.2em;margin-top:10px}.note{font-size:.8rem;margin:13px 0 0}footer{max-width:1080px;margin:28px auto 40px;padding:0 20px;color:var(--muted);font-size:.8rem}
+@media(max-width:740px){.layout{grid-template-columns:1fr}main{margin:25px auto}.panel{padding:18px}}
+@media(max-width:420px){.fields{grid-template-columns:1fr}.full{grid-column:auto}}
+@media print{body{background:white}header,.intro,.form-panel,.actions,footer,.note{display:none!important}main{margin:0}.layout{display:block}.panel{border:0;box-shadow:none}.result{background:white;color:#111;border:1px solid #aaa}.small{color:#444}.stat{background:#eee;color:#111}.breakdown{border-color:#aaa}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Margin<span>Mate</span></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <select id="language" aria-label="Language"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="pt">Português</option><option value="de">Deutsch</option></select>
+    <select id="currency" aria-label="Currency">
+      <option>USD</option><option>JMD</option><option>CAD</option><option>GBP</option><option>EUR</option><option>TTD</option><option>BBD</option><option>XCD</option><option>AUD</option><option>NZD</option><option>INR</option><option>ZAR</option><option>NGN</option><option>GHS</option><option>KES</option><option>UGX</option><option>TZS</option><option>JPY</option><option>CNY</option><option>SGD</option><option>HKD</option><option>CHF</option><option>SEK</option><option>NOK</option><option>DKK</option><option>PLN</option><option>CZK</option><option>MXN</option><option>BRL</option><option>ARS</option><option>CLP</option><option>COP</option><option>PEN</option><option>AED</option><option>SAR</option><option>QAR</option><option>ILS</option><option>TRY</option><option>THB</option><option>MYR</option><option>PHP</option><option>IDR</option><option>PKR</option><option>BDT</option><option>EGP</option><option>MAD</option><option>DOP</option><option>BSD</option><option>BZD</option><option>GYD</option><option>SRD</option>
+    </select>
+  </div>
+</header>
+<main>
+<section class="intro"><div class="eyebrow" data-t="eyebrow">Simple job pricing</div><h1 data-t="headline">Know your costs. Price with confidence.</h1><p data-t="intro">Add your job expenses and target profit margin. MarginMate gives you a suggested price and a clear estimate of your profit.</p></section>
+<div class="layout">
+<section class="panel form-panel">
+<h2 data-t="details">Job details</h2><p class="sub" data-t="detailsSub">Enter the direct costs for this job.</p>
+<div class="fields">
+<div class="field full"><label for="job" data-t="job">Job or service name</label><input id="job" maxlength="70" placeholder="e.g. House cleaning"></div>
+<div class="field"><label for="hours" data-t="hours">Labour hours</label><input id="hours" type="number" min="0" step=".25" value="4"></div>
+<div class="field"><label for="rate" data-t="rate">Cost per labour hour</label><input id="rate" type="number" min="0" step=".01" value="15"></div>
+<div class="field"><label for="materials" data-t="materials">Materials and supplies</label><input id="materials" type="number" min="0" step=".01" value="20"></div>
+<div class="field"><label for="travel" data-t="travel">Travel or delivery</label><input id="travel" type="number" min="0" step=".01" value="10"></div>
+<div class="field"><label for="overhead" data-t="overhead">Other costs / overhead</label><input id="overhead" type="number" min="0" step=".01" value="5"></div>
+<div class="field"><label for="margin" data-t="margin">Target profit margin (%)</label><input id="margin" type="number" min="0" max="90" step=".5" value="30"><div class="hint" data-t="hint">The share of the selling price you want to keep as profit.</div></div>
+</div>
+<div class="error" id="error" role="alert"></div><div class="actions"><button class="primary" id="calculate" data-t="calculate">Calculate price</button><button class="secondary" id="reset" data-t="reset">Reset</button></div>
+</section>
+<section class="panel">
+<h2 data-t="estimate">Your estimate</h2><p class="sub" data-t="estimateSub">Your results update when you calculate.</p>
+<div class="result" aria-live="polite"><div class="small" data-t="suggested">Suggested customer price</div><div class="price" id="price">—</div>
+<div class="stats">
+<div class="stat"><span class="small" data-t="total">Total job cost</span><strong id="cost">—</strong></div>
+<div class="stat"><span class="small" data-t="profitLabel">Estimated profit</span><strong id="profit">—</strong></div>
+<div class="stat"><span class="small" data-t="marginLabel">Profit margin</span><strong id="actualMargin">—</strong></div>
+<div class="stat"><span class="small" data-t="markup">Markup on cost</span><strong id="markup">—</strong></div>
+</div>
+<div class="breakdown"><div class="breakrow"><span data-t="labourCost">Labour cost</span><strong id="labourTotal">—</strong></div><div class="breakrow"><span data-t="otherCosts">Materials, travel and other</span><strong id="otherTotal">—</strong></div></div></div>
+<div class="actions"><button class="secondary" id="print" data-t="print">Print / save estimate</button></div>
+<p class="note" data-t="disclaimer">Estimate only. Check taxes, fees and local costs before sending a quote. Currency selection changes the display only; it does not convert exchange rates.</p>
+</section>
+</div>
+</main>
+<footer>© <span id="year"></span> MarginMate. Built for service businesses.</footer>
+<script>
+const $=id=>document.getElementById(id);
+const words={
+en:{eyebrow:"Simple job pricing",headline:"Know your costs. Price with confidence.",intro:"Add your job expenses and target profit margin. MarginMate gives you a suggested price and a clear estimate of your profit.",details:"Job details",detailsSub:"Enter the direct costs for this job.",job:"Job or service name",hours:"Labour hours",rate:"Cost per labour hour",materials:"Materials and supplies",travel:"Travel or delivery",overhead:"Other costs / overhead",margin:"Target profit margin (%)",hint:"The share of the selling price you want to keep as profit.",calculate:"Calculate price",reset:"Reset",estimate:"Your estimate",estimateSub:"Your results update when you calculate.",suggested:"Suggested customer price",total:"Total job cost",profitLabel:"Estimated profit",marginLabel:"Profit margin",markup:"Markup on cost",labourCost:"Labour cost",otherCosts:"Materials, travel and other",print:"Print / save estimate",disclaimer:"Estimate only. Check taxes, fees and local costs before sending a quote. Currency selection changes the display only; it does not convert exchange rates.",invalid:"Enter valid non-negative costs and a margin below 90%.",placeholder:"e.g. House cleaning"},
+es:{eyebrow:"Precios sencillos",headline:"Conoce tus costes. Fija precios con confianza.",intro:"Añade los gastos del trabajo y el margen de beneficio deseado. MarginMate calcula un precio sugerido y tu beneficio estimado.",details:"Detalles del trabajo",detailsSub:"Introduce los costes directos.",job:"Nombre del trabajo o servicio",hours:"Horas de trabajo",rate:"Coste por hora",materials:"Materiales y suministros",travel:"Transporte o entrega",overhead:"Otros costes / gastos generales",margin:"Margen de beneficio deseado (%)",hint:"La parte del precio de venta que deseas conservar como beneficio.",calculate:"Calcular precio",reset:"Reiniciar",estimate:"Tu estimación",estimateSub:"Los resultados aparecen al calcular.",suggested:"Precio sugerido al cliente",total:"Coste total",profitLabel:"Beneficio estimado",marginLabel:"Margen de beneficio",markup:"Recargo sobre el coste",labourCost:"Coste de mano de obra",otherCosts:"Materiales, transporte y otros",print:"Imprimir / guardar",disclaimer:"Estimación solamente. Comprueba impuestos y costes locales. La moneda cambia la visualización, no convierte tipos de cambio.",invalid:"Introduce costes válidos y un margen inferior al 90%.",placeholder:"p. ej. Limpieza de casa"},
+fr:{eyebrow:"Tarification simple",headline:"Maîtrisez vos coûts. Fixez vos prix en confiance.",intro:"Ajoutez les dépenses du travail et votre marge bénéficiaire cible. MarginMate estime un prix et votre bénéfice.",details:"Détails du travail",detailsSub:"Saisissez les coûts directs.",job:"Nom du travail ou service",hours:"Heures de travail",rate:"Coût par heure",materials:"Matériaux et fournitures",travel:"Déplacement ou livraison",overhead:"Autres coûts / frais généraux",margin:"Marge bénéficiaire cible (%)",hint:"La part du prix de vente conservée comme bénéfice.",calculate:"Calculer le prix",reset:"Réinitialiser",estimate:"Votre estimation",estimateSub:"Les résultats s'affichent après le calcul.",suggested:"Prix suggéré au client",total:"Coût total",profitLabel:"Bénéfice estimé",marginLabel:"Marge bénéficiaire",markup:"Majoration du coût",labourCost:"Coût de la main-d'œuvre",otherCosts:"Matériaux, déplacement et autres",print:"Imprimer / enregistrer",disclaimer:"Estimation uniquement. Vérifiez taxes et coûts locaux. La devise change l'affichage sans convertir les taux.",invalid:"Saisissez des coûts valides et une marge inférieure à 90%.",placeholder:"ex. Nettoyage de maison"},
+pt:{eyebrow:"Preços simples",headline:"Conheça seus custos. Defina preços com confiança.",intro:"Adicione as despesas do serviço e a margem de lucro desejada. MarginMate calcula um preço sugerido e o lucro estimado.",details:"Detalhes do serviço",detailsSub:"Insira os custos diretos.",job:"Nome do serviço",hours:"Horas de trabalho",rate:"Custo por hora",materials:"Materiais e suprimentos",travel:"Transporte ou entrega",overhead:"Outros custos / despesas",margin:"Margem de lucro desejada (%)",hint:"A parte do preço de venda que fica como lucro.",calculate:"Calcular preço",reset:"Limpar",estimate:"Sua estimativa",estimateSub:"Os resultados aparecem após o cálculo.",suggested:"Preço sugerido ao cliente",total:"Custo total",profitLabel:"Lucro estimado",marginLabel:"Margem de lucro",markup:"Acréscimo sobre o custo",labourCost:"Custo de mão de obra",otherCosts:"Materiais, transporte e outros",print:"Imprimir / salvar",disclaimer:"Apenas uma estimativa. Confira impostos e custos locais. A moeda altera a exibição, sem converter taxas.",invalid:"Insira custos válidos e margem inferior a 90%.",placeholder:"ex. Limpeza residencial"},
+de:{eyebrow:"Einfache Preisberechnung",headline:"Kennen Sie Ihre Kosten. Kalkulieren Sie sicher.",intro:"Geben Sie Ihre Auftragskosten und die gewünschte Gewinnspanne ein. MarginMate schätzt Ihren Preis und Gewinn.",details:"Auftragsdetails",detailsSub:"Geben Sie die direkten Kosten ein.",job:"Auftrags- oder Servicebezeichnung",hours:"Arbeitsstunden",rate:"Kosten pro Arbeitsstunde",materials:"Material und Verbrauchsmittel",travel:"Fahrt oder Lieferung",overhead:"Sonstige Kosten / Gemeinkosten",margin:"Gewünschte Gewinnspanne (%)",hint:"Der Anteil des Verkaufspreises, der als Gewinn bleibt.",calculate:"Preis berechnen",reset:"Zurücksetzen",estimate:"Ihre Schätzung",estimateSub:"Die Ergebnisse erscheinen nach der Berechnung.",suggested:"Empfohlener Kundenpreis",total:"Gesamtkosten",profitLabel:"Geschätzter Gewinn",marginLabel:"Gewinnspanne",markup:"Aufschlag auf Kosten",labourCost:"Arbeitskosten",otherCosts:"Material, Fahrt und Sonstiges",print:"Drucken / speichern",disclaimer:"Nur eine Schätzung. Prüfen Sie Steuern und lokale Kosten. Die Währung ändert nur die Anzeige, nicht den Wechselkurs.",invalid:"Geben Sie gültige Kosten und eine Marge unter 90 % ein.",placeholder:"z. B. Hausreinigung"}
+};
+const currency=$("currency"),language=$("language");
+const oldLang=localStorage.getItem("mm-language"),oldCur=localStorage.getItem("mm-currency");
+if(oldLang&&words[oldLang])language.value=oldLang;if(oldCur&&[...currency.options].some(o=>o.value===oldCur))currency.value=oldCur;
+const tr=k=>(words[language.value]||words.en)[k]||words.en[k]||k;
+function applyLanguage(){document.documentElement.lang=language.value;document.querySelectorAll("[data-t]").forEach(el=>el.textContent=tr(el.dataset.t));$("job").placeholder=tr("placeholder");localStorage.setItem("mm-language",language.value)}
+function money(n){try{return new Intl.NumberFormat(undefined,{style:"currency",currency:currency.value,maximumFractionDigits:2}).format(n)}catch{return currency.value+" "+n.toFixed(2)}}
+function calculate(){
+ const ids=["hours","rate","materials","travel","overhead","margin"],v={};
+ for(const id of ids){v[id]=Number($(id).value);if($(id).value.trim()===""||!Number.isFinite(v[id])||v[id]<0){$("error").textContent=tr("invalid");return}}
+ if(v.margin>=90){$("error").textContent=tr("invalid");return}
+ const labour=v.hours*v.rate,other=v.materials+v.travel+v.overhead,cost=labour+other,price=cost/(1-v.margin/100),profit=price-cost,markup=cost===0?0:profit/cost*100;
+ $("error").textContent="";$("price").textContent=money(price);$("cost").textContent=money(cost);$("profit").textContent=money(profit);$("actualMargin").textContent=v.margin.toFixed(1)+"%";$("markup").textContent=markup.toFixed(1)+"%";$("labourTotal").textContent=money(labour);$("otherTotal").textContent=money(other);
+}
+$("calculate").addEventListener("click",calculate);
+$("reset").addEventListener("click",()=>{["hours","rate","materials","travel","overhead","margin"].forEach((id,i)=>$(id).value=[4,15,20,10,5,30][i]);$("job").value="";$("error").textContent="";["price","cost","profit","actualMargin","markup","labourTotal","otherTotal"].forEach(id=>$(id).textContent="—")});
+$("print").addEventListener("click",()=>window.print());
+language.addEventListener("change",applyLanguage);currency.addEventListener("change",()=>{localStorage.setItem("mm-currency",currency.value);if($("price").textContent!=="—")calculate()});
+$("year").textContent=new Date().getFullYear();applyLanguage();calculate();
+</script>
+</body>
+</html>
